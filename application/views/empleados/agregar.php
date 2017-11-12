@@ -44,7 +44,7 @@
                         <?php endforeach ?>
                     </select>
                 </div><br><br>
-                <label>Grupo (ctrl+click para seleccionar varios grupos):</label><br>
+                <label>Grupo <strong>(ctrl+click para seleccionar varios grupos)</strong>:</label><br>
                 <div style="height: 100px;" class="input-control select">
                     <select name="grupo_id" multiple>
                         

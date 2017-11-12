@@ -13,12 +13,12 @@
 						<div class="input-control text">
 						    <input autofocus name="nombre" type="text" value="<?php echo set_value('nombre'); ?>">
 						</div><br><br>
-						<label>Grupo:</label><br>
+						<label>Grupo / Departamento:</label><br>
 						<div class="input-control select">
 						    <select name="grupo_id">
 						        <?php foreach ($grupos as $grupo): ?>
 						        	<option value="<?php echo $grupo['id'] ?>">
-						        		<?php echo $grupo['nombre'] ?>
+						        		<?php echo $grupo['nombre']." / ".$grupo['d_nombre'] ?>
 						        	</option>
 						        <?php endforeach ?>
 						    </select>
@@ -35,8 +35,9 @@
 	        			<thead>
 	        				<tr>
 		        				<th>ID</th>
-		        				<th>Nombre</th>
+		        				<th>Permiso</th>
 		        				<th>Grupo</th>
+		        				<th>Dpto.</th>
 	        				</tr>
 	        			</thead>
 	        			<tbody>
@@ -45,6 +46,7 @@
 	        					<td><?php echo $permiso['id'] ?></td>
 	        					<td><?php echo $permiso['nombre'] ?></td>
 	        					<td><?php echo $permiso['g_nombre'] ?></td>
+	        					<td><?php echo $permiso['d_nombre'] ?></td>
 	        				</tr>
 	        				<?php endforeach ?>
 	        			</tbody>

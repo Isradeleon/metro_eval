@@ -8,9 +8,10 @@ class Permisos_model extends CI_Model {
 	}
 
 	public function get_all() {
-		$this->db->select('permisos.*, grupos.nombre as g_nombre, grupos.id as g_id');
+		$this->db->select('permisos.*, grupos.nombre as g_nombre, grupos.id as g_id, departamentos.nombre as d_nombre');
 		$this->db->from('permisos');
 		$this->db->join('grupos','permisos.grupo_id = grupos.id');
+		$this->db->join('departamentos','grupos.departamento_id = departamentos.id');
 		$query = $this->db->get();
 		return $query->result_array();
 	}

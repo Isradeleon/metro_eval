@@ -35,7 +35,7 @@
 	        			<thead>
 	        				<tr>
 		        				<th>ID</th>
-		        				<th>Nombre</th>
+		        				<th>Grupo</th>
 		        				<th>Departamento</th>
 	        				</tr>
 	        			</thead>
