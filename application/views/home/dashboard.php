@@ -1,46 +1,38 @@
 <ul class="v-menu subdown">
-<?php foreach ($permisos as $permiso): ?>
-	<li><a href="#"><?php echo $permiso['p_nombre'] ?></a></li>
-<?php endforeach ?>
-    <li><a href="<?php echo base_url('logout') ?>"><span class="mif-bubbles icon"></span> SALIR</a></li>
-   <!--  <li class="menu-title">First Title</li>
-    <li><a href="#"><span class="mif-home icon"></span> Home</a></li>
-    <li class="divider"></li>
-    <li class="menu-title">Second Title</li>
-    <li><a href="#"><span class="mif-user icon"></span> Profile</a></li>
-    <li><a href="#"><span class="mif-calendar icon"></span> Calendar</a></li>
-    <li><a href="#"><span class="mif-image icon"></span> Photo</a></li>
-    <li class="divider"></li>
-    <li class="menu-title">Third Title</li>
-    <li>
-        <a href="#" class="dropdown-toggle"><span class="mif-my-location icon"></span> Location</a>
-        <ul class="d-menu" data-role="dropdown">
-            <li class="menu-title">Title for dropdown</li>
-            <li><a href="#">Коллеги</a></li>
-            <li><a href="#">Интересно</a></li>
+    <?php foreach ($acciones as $departamento => $grupos): ?>
+        <li class="menu-title"><strong>Depto. <?php echo $departamento ?></strong></li>
+
+        <?php foreach ($grupos as $grupo => $permisos): ?>
             <li>
-                <div class="item-block text-center">
-                    <button class="square-button"><img class="icon" src="images/round.png"></button>
-                    <button class="square-button"><img class="icon" src="images/location.png"></button>
-                    <button class="square-button"><img class="icon" src="images/group.png"></button>
-                </div>
-            </li>
-            <li>
-                <a href="#" class="dropdown-toggle">Еще...</a>
-                <ul  class="d-menu" data-role="dropdown">
-                    <li><a href="#">Коллеги</a></li>
-                    <li><a href="#">Интересно</a></li>
-                    <li>
-                        <div class="item-block text-center bg-grayLighter">
-                            <button class="round-button"><img class="icon" src="images/round.png"></button>
-                            <button class="round-button"><img class="icon" src="images/location.png"></button>
-                            <button class="round-button"><img class="icon" src="images/group.png"></button>
-                            <button class="round-button"><img class="icon" src="images/power.png"></button>
-                        </div>
-                    </li>
-                    <li class="divider"></li>
+                <a href="#" class="dropdown-toggle"><strong><?php echo $grupo ?></strong></a>
+                <ul class="d-menu" data-role="dropdown">
+                    <li class="menu-title"><?php echo $grupo ?></li>
+                    <?php foreach ($permisos as $permiso => $accion): ?>
+                        <li>
+                            <a href="#" class="dropdown-toggle"><i class="fa fa-arrow-right"></i> <?php echo $permiso ?></a>
+                            <ul class="d-menu" data-role="dropdown">
+                                <?php if ($accion[0] || $accion[1] || $accion[2]): ?>
+                                    <?php if ($accion[0]): ?>
+                                        <li><a style="padding-left: 60px;" href="#"><i class="fa fa-check"></i> Crear</a></li>
+                                    <?php endif ?>
+                                    <?php if ($accion[1]): ?>
+                                        <li><a style="padding-left: 60px;" href="#"><i class="fa fa-close"></i> Eliminar</a></li>
+                                    <?php endif ?>
+                                    <?php if ($accion[2]): ?>
+                                        <li><a style="padding-left: 60px;" href="#"><i class="fa fa-edit"></i> Modificar</a></li>
+                                    <?php endif ?>
+                                <?php else: ?>
+                                    <li><a style="padding-left: 60px;" href="#">0 permisos</a></li>
+                                <?php endif ?>
+                            </ul>
+                        </li>
+                    <?php endforeach ?>
                 </ul>
             </li>
-        </ul>
-    </li> -->
+
+        <?php endforeach ?>
+
+    <?php endforeach ?>
+
+    <li><a href="<?php echo base_url('logout') ?>"><i class="fa fa-sign-out"></i> <strong>Salir</strong></a></li>
 </ul>

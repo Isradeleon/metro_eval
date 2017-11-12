@@ -12,10 +12,8 @@ class Home extends CI_Controller {
 			if (!isset( $result[$action['d_nombre']][$action['g_nombre']] )) {
 				$result[$action['d_nombre']][$action['g_nombre']] = array();
 			}
-			array_push($result[$action['d_nombre']][$action['g_nombre']], $action['p_nombre']);
-			// if (!in_array($action['g_nombre'],$result[$action['d_nombre']])) {
-			// 	array_push($result[$action['d_nombre']], $action['g_nombre']);
-			// }
+			$result[$action['d_nombre']][$action['g_nombre']][$action['p_nombre']] = 
+			array($action['crear'],$action['eliminar'],$action['modificar']);
 		}
 		return $result;
 	}
@@ -26,9 +24,6 @@ class Home extends CI_Controller {
 			$data['acciones'] = $this->order_actions(
 				$this->empleados_model->get_actions($this->session->userdata('logged_in'))
 			);
-			die(json_encode($data['acciones']));
-			die(json_encode($this->empleados_model->get_actions($this->session->userdata('logged_in'))));
-			return;
 
 			$this->load->view('templates/header');
 			$this->load->view('home/dashboard',$data);
