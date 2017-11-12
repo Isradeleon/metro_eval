@@ -7,7 +7,7 @@ Evaluación 3a Unidad con METRO UI y CodeIgniter (PHP framework)
    para ser accedida luego con ña ruta http://localhost/metro_eval/, esto debido a la
    configuración de las rutas del framework.
 
-2. Use el modelo bd_eval de MySQL. La configuración de la base de datos deja acceder a root
+2. Use el modelo bd_eval de MySQL Workbench ubicado en la raiz. La configuración de la base de datos deja acceder a root
    sin contraseña.
 
 ----
